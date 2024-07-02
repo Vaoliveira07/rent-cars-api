@@ -5,14 +5,24 @@ import br.gov.sp.fatec.domain.request.CarroUpdateRequest;
 import br.gov.sp.fatec.domain.response.CarroResponse;
 import java.util.List;
 
-public interface CarroService {
-    CarroResponse save(CarroRequest carroRequest);
+@Service
+public class CarroService {
+    @Autowired
+    private CarroRepository carroRepository;
 
-    CarroResponse findById(Long id);
+    public Carro save(Carro carro) {
+        return carroRepository.save(carro);
+    }
 
-    List<CarroResponse> findAll();
+    public Optional<Carro> findById(Long id) {
+        return carroRepository.findById(id);
+    }
 
-    void updateById(Long id, CarroUpdateRequest carroUpdateRequest);
+    public List<Carro> findAll() {
+        return carroRepository.findAll();
+    }
 
-    void deleteById(Long id);
+    public void deleteById(Long id) {
+        carroRepository.deleteById(id);
+    }
 }

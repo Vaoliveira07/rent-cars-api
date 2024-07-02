@@ -5,14 +5,24 @@ import br.gov.sp.fatec.domain.request.ClienteUpdateRequest;
 import br.gov.sp.fatec.domain.response.ClienteResponse;
 import java.util.List;
 
-public interface ClienteService {
-    ClienteResponse save(ClienteRequest clienteRequest);
+@Service
+public class ClienteService {
+    @Autowired
+    private ClienteRepository clienteRepository;
 
-    ClienteResponse findById(Long id);
+    public Cliente save(Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
 
-    List<ClienteResponse> findAll();
+    public Optional<Cliente> findById(Long id) {
+        return clienteRepository.findById(id);
+    }
 
-    void updateById(Long id, ClienteUpdateRequest clienteUpdateRequest);
+    public List<Cliente> findAll() {
+        return clienteRepository.findAll();
+    }
 
-    void deleteById(Long id);
+    public void deleteById(Long id) {
+        clienteRepository.deleteById(id);
+    }
 }
