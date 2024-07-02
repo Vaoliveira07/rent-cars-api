@@ -10,6 +10,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = SPRING)
 public interface AluguelMapper {
     Aluguel map(AluguelRequest source);
-
     AluguelResponse map(Aluguel source);
+    Aluguel toEntity(AluguelDTO aluguelDTO);
+    AluguelDTO toDTO(Aluguel aluguel);
 }

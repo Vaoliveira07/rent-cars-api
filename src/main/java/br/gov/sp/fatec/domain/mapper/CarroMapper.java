@@ -10,6 +10,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = SPRING)
 public interface CarroMapper {
     Carro map(CarroRequest source);
-
     AluguelResponse map(Carro source);
+    Carro toEntity(CarroDTO carroDTO);
+    CarroDTO toDTO(Carro carro);
 }

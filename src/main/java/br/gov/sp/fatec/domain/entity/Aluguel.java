@@ -19,7 +19,16 @@ public class Aluguel {
     @Id
     @GeneratedValue
     private Long id;
+    private Date dataInicio;
+    private Date dataFim;
+    private double valor;
 
     @Enumerated(value = EnumType.STRING)
     private AluguelStatus status;
+
+    @ManyToOne
+    private Carro carro;
+
+    @ManyToOne
+    private Cliente cliente;
 }
